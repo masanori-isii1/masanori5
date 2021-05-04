@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>メモ帳</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @memos.each do |memo| %>
+      <tr>
+        <td><%= memo.title %></td>
+        <td><%= memo.body %></td>
+        <td><%= link_to '表示', memo %></td>
+        <td><%= link_to '編集', edit_memo_path(memo) %></td>
+        <td><%= link_to '削除', memo, method: :delete, data: { confirm: '削除しますか?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Memo', new_memo_path %>
